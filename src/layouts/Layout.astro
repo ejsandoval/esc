@@ -4,6 +4,9 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import  Nav from '../components/Nav.astro';
+import  Grid from '../components/Grid.astro';
 ---
 
 <!doctype html>
@@ -17,7 +20,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Nav/>
+		<Grid>
+			<slot />
+		</Grid>
 	</body>
 </html>
 <style is:global>
@@ -34,7 +40,7 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
+		background: #E4E4E2;
 		background-size: 224px;
 	}
 	code {
