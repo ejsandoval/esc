@@ -1,0 +1,87 @@
+{
+  "sections": [
+    {
+      "category": "Exhibitions",
+      "keys": ["artwork", "place", "year", "city"],
+      "items": [
+        {
+          "artwork": "Habitantes de la Imagen",
+          "place": "Persa Víctor Manuel",
+          "year": 2019,
+          "city": "Santiago, Chile"
+        },
+        {
+          "artwork": "Default",
+          "place": "Museo de Arte Contemporáneo",
+          "year": 2017,
+          "city": "Santiago, Chile"
+        }
+      ]
+    },
+    {
+      "category": "Education",
+      "keys": ["title", "institution", "year", "city"],
+      "items": [
+        {
+          "title": "Bachelor of Engineering Sciences",
+          "institution": "Pontificia Universidad Católica de Chile",
+          "year": "2012 - 2018",
+          "city": "Santiago, Chile"
+        },
+        {
+          "title": "Part of GoGlobal Innovation Design Engineering",
+          "institution": "Royal College of Arts / Imperial College London",
+          "year": 2017,
+          "city": "Santiago, Chile"
+        },
+        {
+          "title": "Introduction to Programming I, II",
+          "institution": "Universidad de Chile",
+          "year": "2011, 2012",
+          "city": "Santiago, Chile"
+        }
+      ]
+    },
+    {
+      "category": "Work",
+      "keys": ["title", "company", "year"],
+      "items": [
+        {
+          "title": "Senior Design Engineer",
+          "company": "Design Systems International",
+          "year": "2018 - current"
+        },
+        {
+          "title": "Data Analyst",
+          "company": "SAWA",
+          "year": 2018
+        },
+        {
+          "title": "Qualitative UX Researcher",
+          "company": "Fundación Antenna",
+          "year": 2018
+        },
+        {
+          "title": "Information Designer",
+          "company": "The National Council of Innovation for Development (CNID)",
+          "year": 2017
+        },
+        {
+          "title": "Web Designer",
+          "company": "Fundación Antenna",
+          "year": "2017 - 2020"
+        },
+        {
+          "title": "Qualitative Researcher ",
+          "company": "Engie Factory",
+          "year": "2016"
+        },
+        {
+          "title": "Producer and Coordinator",
+          "company": "SaviaLab",
+          "year": "2016"
+        }
+      ]
+    }
+  ]
+}

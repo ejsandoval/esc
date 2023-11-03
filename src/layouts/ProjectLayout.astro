@@ -1,0 +1,124 @@
+---
+import { Image } from "astro:assets";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+
+const { title, color, cover, coverAlt, year, tags, team, images, alts } =
+  frontmatter;
+---
+
+<Layout title={title} gradientColor={color}>
+  <Image class={"cover"} src={cover} alt={coverAlt} />
+  <div class="projectDescription">
+    <div class="left">
+      <div class="row">
+        <div class="category">Year</div><div class="value">
+          {year}
+        </div>
+      </div>
+      <div class="row">
+        <div class="category">Category</div><div class="value">
+          {tags.join(", ")}
+        </div>
+      </div>
+      {
+        team &&
+          team.map((member, i) => (
+            <div class="inter-row">
+              <div class="category">{i === 0 ? "Team" : ""}</div>
+              <div class="value">{member}</div>
+            </div>
+          ))
+      }
+    </div>
+    <div class="right">
+      <h2>{title}</h2>
+      <slot />
+    </div>
+  </div>
+  {
+    images && (
+      <div class="images">
+        {images.map((img, i) => (
+          <div
+            class={
+              i % 3 == 0 ? "image-container-medium" : "image-container-small"
+            }
+          >
+            <Image class="image" src={img} alt={alts[i]} />
+          </div>
+        ))}
+      </div>
+    )
+  }
+</Layout>
+
+<style>
+  h2 {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  .cover {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: var(--spacing-l);
+  }
+
+  .row {
+    display: flex;
+    gap: var(--gutter);
+    flex-direction: row;
+    padding-bottom: var(--spacing-s);
+  }
+
+  .inter-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .category {
+    flex-basis: calc(100% * 2 / 7);
+  }
+
+  .value {
+    flex-basis: calc(100% * 5 / 7);
+  }
+
+  .left {
+    flex-basis: calc(100% * 7 / 13);
+  }
+
+  .right {
+    flex-basis: calc(100% * 6 / 13);
+  }
+
+  .images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    padding-top: var(--spacing-m);
+  }
+
+  .image-container-medium {
+    flex-basis: calc(100% * 7 / 13 - var(--gutter) / 2);
+  }
+
+  .image-container-small {
+    flex-basis: calc(100% * 6 / 13 - var(--gutter) / 2);
+  }
+
+  .image {
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .projectDescription {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gutter);
+    padding-top: var(--spacing-m);
+  }
+</style>

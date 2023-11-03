@@ -1,25 +1,26 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 ---
 
-<nav class="nav">
-    <Button label="esc" href='/' selected={false}/>
+<header>
+  <nav class="nav">
+    <Button label="esc" href="/" selected={false} />
     <div class="nav-group">
-        <Button label="w" href='/work' selected={false}/>
-        <Button label="?" href='/who' selected={false}/>
-        <Button label="@" href='/contact' selected={false}/>
+      <Button label="w" href="/" selected={false} />
+      <Button label="?" href="/who" selected={false} />
+      <Button label="@" href="/contact" selected={false} />
     </div>
-</nav>
+  </nav>
+</header>
 
 <style>
-    .nav{
-        display: flex;
-        margin: 16px 30px;
-        justify-content: space-between;
-    }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .nav-group{
-        display: flex;
-        gap: 15px;
-    }
+  .nav-group {
+    display: flex;
+    gap: 15px;
+  }
 </style>

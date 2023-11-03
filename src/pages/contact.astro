@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="how to contact?">
+  <main>
+    <div class="bio">
+      <p>
+        You can write me <a href="mailto:estebsandovalc@gmail.com">here</a> or
+        contact me through any of the following social media platforms:
+      </p>
+      <p>
+        <a href="https://www.instagram.com/estebsandoval/">instagram</a>
+      </p>
+      <p>
+        <a href='https://twitter.com/estebsandoval"'>twitter</a>
+      </p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    max-width: calc(100% * 8 / 13);
+    padding-top: var(--spacing-l);
+  }
+
+  .bio {
+    margin-left: auto;
+    max-width: calc(100% * 6 / 8);
+    line-height: 1.6;
+    font-size: 1.4rem;
+    padding-bottom: var(--spacing-l);
+  }
+
+  a {
+    color: var(--black);
+  }
+
+  a:hover {
+    color: #f64a92;
+  }
+
+  a:focus {
+    color: #aa41cf;
+  }
+</style>

@@ -1,30 +1,175 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import data from "./data/about.json";
+
+const exhibition = data.sections.filter(
+  (section) => section.category === "Exhibitions"
+)[0];
+const education = data.sections.filter(
+  (section) => section.category === "Education"
+)[0];
+const work = data.sections.filter((section) => section.category === "Work")[0];
 ---
 
-<Layout title="Who is Esteban">
-	<main>
-		<p class="instructions">
-			Esteban Sandoval Copaja is a design engineer. He’s also a creative coder, makeup enthusiast, and paper note-taker.
+<Layout title="who is esc?">
+  <main>
+    <div class="bio">
+      <p>
+        Esteban Sandoval Copaja is a design engineer. He’s also a creative
+        coder, makeup enthusiast, and paper note-taker.
+      </p>
+      <p>
+        His interests include visual narratives, visual poetry, data
+        visualization, typography, systems and interaction. His work uses
+        technology as part of the creative process, either as an exploratory
+        mechanism or the actual object of study.
+      </p>
+      <p>
+        He’s currently based in Santiago, Chile and is working as a design
+        engineer at Design Systems International.
+      </p>
+      <p>
+        He's a queer seropositive latinx and uses he/him/they/them pronouns.
+      </p>
+    </div>
+    <table>
+      {
+        exhibition.items.map((item, j) => {
+          if (j === 0)
+            return (
+              <tr class="divider">
+                <td class:list={["category", "firstItem"]}>
+                  {exhibition.category}
+                </td>
+                <td class="firstItem">
+                  {item.artwork}
+                  <br /> {item.place}
+                </td>
+                <td class:list={["rightAlign", "firstItem"]}>
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+          else
+            return (
+              <tr>
+                <td class="category" />
+                <td class="">
+                  {item.artwork}
+                  <br /> {item.place}
+                </td>
+                <td class="rightAlign">
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+        })
+      }
+      {
+        education.items.map((item, j) => {
+          if (j === 0)
+            return (
+              <tr class="divider">
+                <td class:list={["category", "firstItem"]}>
+                  {education.category}
+                </td>
+                <td class="firstItem">
+                  {item.title}
+                  <br /> {item.institution}
+                </td>
+                <td class:list={["rightAlign", "firstItem"]}>
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+          else
+            return (
+              <tr>
+                <td class="category" />
+                <td class="">
+                  {item.title}
+                  <br /> {item.institution}
+                </td>
+                <td class="rightAlign">
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+        })
+      }
+      {
+        work.items.map((item, j) => (
+          <tr class:list={[{ divider: j === 0 }]}>
+            <td class:list={["category", { firstItem: j === 0 }]}>
+              {j === 0 && work.category}
+            </td>
+            <td class:list={[{ firstItem: j === 0 }]}>
+              {item.title}
+              <br /> {item.company}
+            </td>
+            <td class:list={["rightAlign", { firstItem: j === 0 }]}>
+              {item.year}
+            </td>
+          </tr>
+        ))
+      }
+    </table>
+  </main>
 
-His interests include visual narratives, visual poetry, data visualization, typography, systems and interaction. His work uses technology as part of the creative process, either as an exploratory mechanism or the actual object of study.
+  <style>
+    main {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      max-width: calc(100% * 8 / 13);
+      padding-top: var(--spacing-l);
+    }
 
-He’s currently based in Santiago, Chile and is working as a design engineer at Design Systems International.
-		</p>
-	</main>
+    .divider {
+      width: 100%;
+      border-top: 1px solid #797979;
+    }
+
+    .firstItem {
+      padding-top: var(--spacing-m);
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      vertical-align: top;
+      padding: 0 0 var(--spacing-m) 0;
+    }
+
+    .bio {
+      margin-left: auto;
+      max-width: calc(100% * 6 / 8);
+      line-height: 1.6;
+      font-size: 1.4rem;
+      padding-bottom: var(--spacing-l);
+    }
+
+    .firstcategory {
+      width: calc(100% * 2 / 8);
+    }
+
+    .category {
+      width: calc(100% * 2 / 8);
+    }
+
+    .rightAlign {
+      text-align: right;
+    }
+
+    .group {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: #000000;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-	}
-</style>

@@ -1,57 +1,83 @@
 ---
+import "../styles/global.css";
+
+import Nav from "../components/Nav.astro";
+import Grid from "../components/Grid.astro";
+import Footer from "../components/Footer.astro";
+
 interface Props {
-	title: string;
+  title: string;
+  gradientColor?: string;
 }
 
-const { title } = Astro.props;
+const { title, gradientColor = "#E4E4E2" } = Astro.props;
 
-import  Nav from '../components/Nav.astro';
-import  Grid from '../components/Grid.astro';
+const black = `rgba(0,0,0,0.75)`;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<Nav/>
-		<Grid>
-			<slot />
-		</Grid>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Nav />
+    <Grid>
+      <slot />
+    </Grid>
+    <Footer />
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #E4E4E2;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+<style is:global define:vars={{ black, gradientColor }}>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+    --spacing-xl: 100px;
+    --spacing-l: 64px;
+    --spacing-m: 32px;
+    --spacing-s: 16px;
+    --spacing-xs: 8px;
+
+    --gutter: 20px;
+    --columns: 13;
+    --col-width: calc(calc(100% / var(--columns))-var(--gutter) * 12);
+  }
+  html {
+    color: var(--black);
+    background: rgb(228, 228, 226);
+  }
+
+  body {
+    padding: 16px 30px;
+    min-height: 100vh;
+    background: linear-gradient(
+      0deg,
+      var(--gradientColor) 0%,
+      rgba(228, 228, 226, 1) 45%
+    );
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
 </style>

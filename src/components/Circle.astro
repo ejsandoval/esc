@@ -1,0 +1,43 @@
+---
+interface Props {
+  color: string;
+  classname?: string;
+  id?: string;
+  size: number;
+  blur: number;
+  isMoving?: boolean;
+}
+
+const { color, classname, id, size, blur, isMoving = false } = Astro.props;
+---
+
+<div id={id} class:list={["circle", classname, { moving: isMoving }]}></div>
+
+<style define:vars={{ size, color, blur }}>
+  .circle {
+    background-color: var(--color);
+    border-radius: 100%;
+    min-width: var(--size);
+    height: var(--size);
+    filter: blur(var(--blur));
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  .moving {
+    animation: move-center 4s cubic-bezier(0.39, 0.575, 0.565, 1) infinite both;
+  }
+  @keyframes move-center {
+    0% {
+      transform: translate(-50%, -50%);
+    }
+    33% {
+      transform: translate(-60%, -47%);
+    }
+    66% {
+      transform: translate(-40%, -63%);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
