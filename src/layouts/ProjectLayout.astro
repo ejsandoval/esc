@@ -3,12 +3,30 @@ import { Image } from "astro:assets";
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 
-const { title, color, cover, coverAlt, year, tags, team, images, alts } =
-  frontmatter;
+const {
+  title,
+  color,
+  cover,
+  coverAlt,
+  header,
+  headerAlt,
+  year,
+  exhibit,
+  tags,
+  team,
+  images,
+  alts,
+} = frontmatter;
 ---
 
 <Layout title={title} gradientColor={color}>
-  <Image class={"cover"} src={cover} alt={coverAlt} />
+  {
+    header ? (
+      <Image class={"header"} src={header} alt={headerAlt} />
+    ) : (
+      <Image class={"header"} src={cover} alt={coverAlt} />
+    )
+  }
   <div class="projectDescription">
     <div class="left">
       <div class="row">
@@ -21,6 +39,16 @@ const { title, color, cover, coverAlt, year, tags, team, images, alts } =
           {tags.join(", ")}
         </div>
       </div>
+      {
+        exhibit && (
+          <div class="row">
+            <>
+              <div class="category">Exhibited in</div>
+              <div class="value">{exhibit}</div>
+            </>
+          </div>
+        )
+      }
       {
         team &&
           team.map((member, i) => (
@@ -39,15 +67,21 @@ const { title, color, cover, coverAlt, year, tags, team, images, alts } =
   {
     images && (
       <div class="images">
-        {images.map((img, i) => (
-          <div
-            class={
-              i % 3 == 0 ? "image-container-medium" : "image-container-small"
-            }
-          >
-            <Image class="image" src={img} alt={alts[i]} />
+        {images.length === 1 ? (
+          <div class={"image-container-big"}>
+            <Image class="image" src={images[0]} alt={alts[0]} />
           </div>
-        ))}
+        ) : (
+          images.map((img, i) => (
+            <div
+              class={
+                i % 3 == 0 ? "image-container-medium" : "image-container-small"
+              }
+            >
+              <Image class="image" src={img} alt={alts[i]} />
+            </div>
+          ))
+        )}
       </div>
     )
   }
@@ -58,7 +92,7 @@ const { title, color, cover, coverAlt, year, tags, team, images, alts } =
     margin-top: 0;
     font-size: 1rem;
   }
-  .cover {
+  .header {
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -74,6 +108,7 @@ const { title, color, cover, coverAlt, year, tags, team, images, alts } =
 
   .inter-row {
     display: flex;
+    gap: var(--gutter);
     flex-direction: row;
   }
 
@@ -99,6 +134,10 @@ const { title, color, cover, coverAlt, year, tags, team, images, alts } =
     flex-wrap: wrap;
     gap: var(--gutter);
     padding-top: var(--spacing-m);
+  }
+
+  .image-container-big {
+    flex-basis: 100%;
   }
 
   .image-container-medium {

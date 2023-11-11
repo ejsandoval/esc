@@ -11,6 +11,13 @@ const postsCollection = defineCollection({
         message: "Cover image must be at least 1080 pixels wide!",
       }),
       coverAlt: z.string(),
+      header: image()
+        .refine((img) => img.width >= 1080, {
+          message: "Header image must be at least 1080 pixels wide!",
+        })
+        .optional(),
+      headerAlt: z.string().optional(),
+      exhibit: z.string().optional(),
       tags: z.array(z.string()),
       team: z.array(z.string()).optional(),
       color: z.string(),
