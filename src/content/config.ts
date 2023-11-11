@@ -20,6 +20,7 @@ const postsCollection = defineCollection({
       exhibit: z.string().optional(),
       tags: z.array(z.string()),
       team: z.array(z.string()).optional(),
+      link: z.object({ url: z.string(), label: z.string() }).optional(),
       color: z.string(),
       images: z
         .array(

@@ -12,6 +12,7 @@ const {
   headerAlt,
   year,
   exhibit,
+  link,
   tags,
   team,
   images,
@@ -45,6 +46,18 @@ const {
             <>
               <div class="category">Exhibited in</div>
               <div class="value">{exhibit}</div>
+            </>
+          </div>
+        )
+      }
+      {
+        link && (
+          <div class="row">
+            <>
+              <div class="category">Link to</div>
+              <div class="value">
+                <a href={link.url}>{link.label}</a>
+              </div>
             </>
           </div>
         )
@@ -151,6 +164,7 @@ const {
   .image {
     height: auto;
     width: 100%;
+    max-height: 85vh;
     object-fit: cover;
   }
 
