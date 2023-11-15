@@ -2,12 +2,16 @@
 import { Image } from "astro:assets";
 import Circle from "./Circle.astro";
 const { title, cover, alt, href, color, index } = Astro.props;
+import Color from "color";
+
 const mod = (index + 1) % 4;
 const width =
   mod === 1 || mod === 0
     ? `calc(100%*7/13 - var(--gutter)/2)`
     : `calc(100%*6/13 - var(--gutter)/2)`;
+const colorObject = Color(color);
 const isLarge = mod === 1 || mod === 0 ? true : false;
+const textColor = colorObject.isLight() ? "rgba(0,0,0,0.75)" : "#e4e4e2";
 ---
 
 <li class="projectCard">
@@ -19,7 +23,7 @@ const isLarge = mod === 1 || mod === 0 ? true : false;
   </a>
 </li>
 
-<style define:vars={{ width, color }}>
+<style define:vars={{ width, color, textColor }}>
   .projectCard {
     position: relative;
     flex-basis: var(--width);
@@ -40,7 +44,7 @@ const isLarge = mod === 1 || mod === 0 ? true : false;
     z-index: 100;
     top: 50%;
     left: 50%;
-    color: var(--black);
+    color: var(--textColor);
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease-in-out;
   }
@@ -104,6 +108,12 @@ const isLarge = mod === 1 || mod === 0 ? true : false;
     }
     100% {
       transform: translate(-50%, -50%);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .projectCard {
+      flex-basis: 100%;
     }
   }
 </style>

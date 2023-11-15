@@ -17,6 +17,10 @@ body {
   font-family: "HKGrotesk", sans-serif;
 }
 
+a {
+  font-family: "HKGrotesk", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }

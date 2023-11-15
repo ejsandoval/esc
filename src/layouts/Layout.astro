@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/breakpoints.css";
 
 import Nav from "../components/Nav.astro";
 import Grid from "../components/Grid.astro";
@@ -13,6 +14,10 @@ interface Props {
 const { title, gradientColor = "#E4E4E2" } = Astro.props;
 
 const black = `rgba(0,0,0,0.75)`;
+const max = "max-width: 9999px";
+const large = "max-width: 1920px";
+const medium = "max-width: 1024px";
+const small = "max-width: 700px";
 ---
 
 <!doctype html>
@@ -33,23 +38,16 @@ const black = `rgba(0,0,0,0.75)`;
     <Footer />
   </body>
 </html>
-<style is:global define:vars={{ black, gradientColor }}>
+<style
+  is:global
+  define:vars={{ black, gradientColor, max, large, medium, small }}
+>
   :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
     --spacing-xl: 100px;
     --spacing-l: 64px;
     --spacing-m: 32px;
     --spacing-s: 16px;
     --spacing-xs: 8px;
-
     --gutter: 20px;
     --columns: 13;
     --col-width: calc(calc(100% / var(--columns))-var(--gutter) * 12);
@@ -79,17 +77,5 @@ const black = `rgba(0,0,0,0.75)`;
 
   a:focus {
     color: #aa41cf;
-  }
-
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
   }
 </style>
