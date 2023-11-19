@@ -100,7 +100,7 @@ const {
   }
 </Layout>
 
-<style>
+<style define:vars={{ color }}>
   h2 {
     margin-top: 0;
     font-size: 1rem;
@@ -173,5 +173,10 @@ const {
     flex-direction: row;
     gap: var(--gutter);
     padding-top: var(--spacing-m);
+  }
+
+  a:hover {
+    color: rgba(0, 0, 0, 0.75);
+    text-shadow: 0px 0px 14px var(--color);
   }
 </style>

@@ -4,6 +4,10 @@ import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
 const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => {
+  if (a.data.order > b.data.order) return 1;
+  else return -1;
+});
 ---
 
 <Layout title="esc | design engineer">

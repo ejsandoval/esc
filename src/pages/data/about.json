@@ -29,15 +29,39 @@
           "city": "Santiago, Chile"
         },
         {
-          "title": "Part of GoGlobal Innovation Design Engineering",
+          "title": "Part of GoGlobal Innovation Design Engineering Programme",
           "institution": "Royal College of Arts / Imperial College London",
           "year": 2017,
           "city": "Santiago, Chile"
         },
         {
           "title": "Introduction to Programming I, II",
-          "institution": "Universidad de Chile",
+          "institution": "Summer School @ Universidad de Chile",
           "year": "2011, 2012",
+          "city": "Santiago, Chile"
+        }
+      ]
+    },
+    {
+      "category": "Teaching",
+      "keys": ["title", "institution", "year", "city"],
+      "items": [
+        {
+          "title": "Professor of the Data Visualization Diploma",
+          "institution": "Pontificia Universidad Católica de Chile",
+          "year": "2019",
+          "city": "Santiago, Chile"
+        },
+        {
+          "title": "TA of Visual Thinking (6 semesters)",
+          "institution": "Pontificia Universidad Católica de Chile",
+          "year": "2015 - 2017",
+          "city": "Santiago, Chile"
+        },
+        {
+          "title": "TA of Introduction to Programming",
+          "institution": "Pontificia Universidad Católica de Chile",
+          "year": "2014",
           "city": "Santiago, Chile"
         }
       ]

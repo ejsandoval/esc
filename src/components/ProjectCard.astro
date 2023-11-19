@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import Circle from "./Circle.astro";
 const { title, cover, alt, href, color, index } = Astro.props;
 import Color from "color";
 
@@ -87,9 +86,9 @@ const textColor = colorObject.isLight() ? "rgba(0,0,0,0.75)" : "#e4e4e2";
     transform: translate(-50%, -50%);
     background-color: var(--color);
     border-radius: 100%;
-    min-width: 180px;
-    height: 180px;
-    filter: blur(54px);
+    min-width: 200px;
+    height: 200px;
+    filter: blur(37px);
     transition: opacity 0.2s ease-in-out;
   }
 

@@ -8,6 +8,9 @@ const exhibition = data.sections.filter(
 const education = data.sections.filter(
   (section) => section.category === "Education"
 )[0];
+const teaching = data.sections.filter(
+  (section) => section.category === "Teaching"
+)[0];
 const work = data.sections.filter((section) => section.category === "Work")[0];
 ---
 
@@ -74,6 +77,40 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
               <tr class="divider">
                 <td class:list={["category", "firstItem"]}>
                   {education.category}
+                </td>
+                <td class="firstItem">
+                  {item.title}
+                  <br /> {item.institution}
+                </td>
+                <td class:list={["rightAlign", "firstItem"]}>
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+          else
+            return (
+              <tr>
+                <td class="category" />
+                <td class="">
+                  {item.title}
+                  <br /> {item.institution}
+                </td>
+                <td class="rightAlign">
+                  {item.year}
+                  <br /> {item.city}
+                </td>
+              </tr>
+            );
+        })
+      }
+      {
+        teaching.items.map((item, j) => {
+          if (j === 0)
+            return (
+              <tr class="divider">
+                <td class:list={["category", "firstItem"]}>
+                  {teaching.category}
                 </td>
                 <td class="firstItem">
                   {item.title}

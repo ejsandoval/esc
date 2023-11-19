@@ -22,6 +22,7 @@ const postsCollection = defineCollection({
       team: z.array(z.string()).optional(),
       link: z.object({ url: z.string(), label: z.string() }).optional(),
       color: z.string(),
+      order: z.number().optional(),
       images: z
         .array(
           image().refine((img) => img.width >= 480, {
