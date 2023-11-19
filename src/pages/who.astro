@@ -23,36 +23,41 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
       </p>
       <p>
         His interests include media art, data visualization, qualitative
-        research, design systems and interaction design. His work uses
+        research, design systems, and interaction design. His work uses
         technology as part of the creative process, either as an exploratory
-        mechanism or the actual object of study.
+        mechanism or as the actual object of study.
       </p>
       <p>
-        He's currently based in Santiago, Chile and is working as a design
-        engineer at <a href="https://designsystems.international/"
+        He's currently based in Santiago, Chile and works as a design engineer
+        at <a href="https://designsystems.international/"
           >Design Systems International</a
         >.
       </p>
-      <p>He's a queer seropositive latinx and uses he/they pronouns.</p>
+      <p>He's a queer seropositive Latinx and uses he/they pronouns.</p>
     </div>
     <table>
       {
         exhibition.items.map((item, j) => {
           if (j === 0)
             return (
-              <tr class="divider">
-                <td class:list={["category", "firstItem"]}>
-                  {exhibition.category}
-                </td>
-                <td class="firstItem">
-                  {item.artwork}
-                  <br /> {item.place}
-                </td>
-                <td class:list={["rightAlign", "firstItem"]}>
-                  {item.year}
-                  <br /> {item.city}
-                </td>
-              </tr>
+              <>
+                <tr class="categoryMobile">
+                  <td>{exhibition.category}</td>
+                </tr>
+                <tr class="divider">
+                  <td class:list={["category", "firstItem"]}>
+                    {exhibition.category}
+                  </td>
+                  <td class="firstItem">
+                    {item.artwork}
+                    <br /> {item.place}
+                  </td>
+                  <td class:list={["rightAlign", "firstItem"]}>
+                    {item.year}
+                    <br /> {item.city}
+                  </td>
+                </tr>
+              </>
             );
           else
             return (
@@ -74,19 +79,24 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
         education.items.map((item, j) => {
           if (j === 0)
             return (
-              <tr class="divider">
-                <td class:list={["category", "firstItem"]}>
-                  {education.category}
-                </td>
-                <td class="firstItem">
-                  {item.title}
-                  <br /> {item.institution}
-                </td>
-                <td class:list={["rightAlign", "firstItem"]}>
-                  {item.year}
-                  <br /> {item.city}
-                </td>
-              </tr>
+              <>
+                <tr class="categoryMobile">
+                  <td>{education.category}</td>
+                </tr>
+                <tr class="divider">
+                  <td class:list={["category", "firstItem"]}>
+                    {education.category}
+                  </td>
+                  <td class="firstItem">
+                    {item.title}
+                    <br /> {item.institution}
+                  </td>
+                  <td class:list={["rightAlign", "firstItem"]}>
+                    {item.year}
+                    <br /> {item.city}
+                  </td>
+                </tr>
+              </>
             );
           else
             return (
@@ -108,19 +118,24 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
         teaching.items.map((item, j) => {
           if (j === 0)
             return (
-              <tr class="divider">
-                <td class:list={["category", "firstItem"]}>
-                  {teaching.category}
-                </td>
-                <td class="firstItem">
-                  {item.title}
-                  <br /> {item.institution}
-                </td>
-                <td class:list={["rightAlign", "firstItem"]}>
-                  {item.year}
-                  <br /> {item.city}
-                </td>
-              </tr>
+              <>
+                <tr class="categoryMobile">
+                  <td>{teaching.category}</td>
+                </tr>
+                <tr class="divider">
+                  <td class:list={["category", "firstItem"]}>
+                    {teaching.category}
+                  </td>
+                  <td class="firstItem">
+                    {item.title}
+                    <br /> {item.institution}
+                  </td>
+                  <td class:list={["rightAlign", "firstItem"]}>
+                    {item.year}
+                    <br /> {item.city}
+                  </td>
+                </tr>
+              </>
             );
           else
             return (
@@ -140,18 +155,25 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
       }
       {
         work.items.map((item, j) => (
-          <tr class:list={[{ divider: j === 0 }]}>
-            <td class:list={["category", { firstItem: j === 0 }]}>
-              {j === 0 && work.category}
-            </td>
-            <td class:list={[{ firstItem: j === 0 }]}>
-              {item.title}
-              <br /> {item.company}
-            </td>
-            <td class:list={["rightAlign", { firstItem: j === 0 }]}>
-              {item.year}
-            </td>
-          </tr>
+          <>
+            {j === 0 && (
+              <tr class="categoryMobile">
+                <td>{work.category}</td>
+              </tr>
+            )}
+            <tr class:list={[{ divider: j === 0 }]}>
+              <td class:list={["category", { firstItem: j === 0 }]}>
+                {j === 0 && work.category}
+              </td>
+              <td class:list={[{ firstItem: j === 0 }]}>
+                {item.title}
+                <br /> {item.company}
+              </td>
+              <td class:list={["rightAlign", { firstItem: j === 0 }]}>
+                {item.year}
+              </td>
+            </tr>
+          </>
         ))
       }
     </table>
@@ -209,6 +231,10 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
       flex-direction: row;
     }
 
+    .categoryMobile {
+      display: none;
+    }
+
     @media (max-width: 1024px) {
       main {
         max-width: none;
@@ -222,7 +248,15 @@ const work = data.sections.filter((section) => section.category === "Work")[0];
       }
 
       .category {
-        width: 33%;
+        display: none;
+      }
+
+      .categoryMobile {
+        display: block;
+        vertical-align: top;
+        & td {
+          padding: var(--spacing-m) 0 var(--spacing-xs) 0;
+        }
       }
     }
   </style>

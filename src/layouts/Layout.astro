@@ -24,7 +24,7 @@ const small = "max-width: 700px";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -77,5 +77,11 @@ const small = "max-width: 700px";
 
   a:focus {
     color: #aa41cf;
+  }
+
+  @media (max-width: 700px) {
+    body {
+      padding: 16px 16px;
+    }
   }
 </style>
