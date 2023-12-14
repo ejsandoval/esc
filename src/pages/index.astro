@@ -12,6 +12,10 @@ allProjects.sort((a, b) => {
 
 <Layout title="esc | design engineer">
   <main>
+    <div class="bio">
+      Esteban Sandoval-Copaja is a design engineer, creative coder and a makeup
+      enthusiast.
+    </div>
     <ul role="list" class="projectGrid">
       {
         allProjects.map((project, index) => (
@@ -35,6 +39,12 @@ allProjects.sort((a, b) => {
     color: #000000;
     font-size: 20px;
     line-height: 1.6;
+  }
+  .bio {
+    padding-top: var(--spacing-m);
+    line-height: 1.6;
+    font-size: 1.4rem;
+    color: var(--black);
   }
   .astro-a {
     position: absolute;
