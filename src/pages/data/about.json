@@ -5,6 +5,12 @@
       "keys": ["artwork", "place", "year", "city"],
       "items": [
         {
+          "artwork": "Interrupción",
+          "place": "LAITEC, Pontificia Universidad Católica de Chile",
+          "year": 2025,
+          "city": "Santiago, Chile"
+        },
+        {
           "artwork": "Habitantes de la Imagen",
           "place": "Persa Víctor Manuel",
           "year": 2019,
@@ -33,6 +39,12 @@
           "institution": "Royal College of Arts / Imperial College London",
           "year": 2017,
           "city": "Santiago, Chile"
+        },
+        {
+          "title": "Course: Introduction to Media Arts and Immersive Technologies",
+          "institution": "Pontificia Universidad Católica de Chile",
+          "year": 2025,
+          "city": "Santiago, Chile"
         }
       ]
     },
@@ -41,7 +53,13 @@
       "keys": ["title", "institution", "year", "city"],
       "items": [
         {
-          "title": "Professor of the Data Visualization Diploma",
+          "title": "Instructor of Visual Thinking IDI1015",
+          "institution": "School of Engineering, Pontificia Universidad Católica de Chile",
+          "year": "2024-2025",
+          "city": "Santiago, Chile"
+        },
+        {
+          "title": "Instructor of the Data Visualization Diploma",
           "institution": "Pontificia Universidad Católica de Chile",
           "year": "2019",
           "city": "Santiago, Chile"
@@ -65,9 +83,9 @@
       "keys": ["title", "company", "year"],
       "items": [
         {
-          "title": "Senior Design Engineer",
+          "title": "Staff Design Engineer",
           "company": "Design Systems International",
-          "year": "2018 - current"
+          "year": "2019 - current"
         },
         {
           "title": "Data Analyst",
